@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 
 pkgs.stdenv.mkDerivation rec {
@@ -11,11 +11,12 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "1wsdmpbzkhhjgs725malsiyadmshq32ndba2marv5xsb2zgva4li";
 
   };
-  installPhase = let p =  "${pname}/${version}"; in ''
-    mkdir -p $out/${p}
-    cp -r Terminal-Icons/* $out/${p}
-    cp -r docs/en-US $out/${p}
-  '';
+  installPhase = let p = "${pname}/${version}"; in
+    ''
+      mkdir -p $out/${p}
+      cp -r Terminal-Icons/* $out/${p}
+      cp -r docs/en-US $out/${p}
+    '';
   dontBuild = true;
   dontConfigure = true;
   doInstallCheck = false;

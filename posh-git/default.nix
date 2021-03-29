@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 
 pkgs.stdenv.mkDerivation rec {
@@ -12,11 +12,12 @@ pkgs.stdenv.mkDerivation rec {
 
   };
   #buildInputs = [pkgs.gitFull.git];
-  installPhase = let p =  "${pname}/${version}"; in ''
-    echo ${p}
-    mkdir -p $out/${p}
-    cp -r src/* $out/${p}
-  '';
+  installPhase = let p = "${pname}/${version}"; in
+    ''
+      echo ${p}
+      mkdir -p $out/${p}
+      cp -r src/* $out/${p}
+    '';
   dontBuild = true;
   dontConfigure = true;
   doInstallCheck = false;
