@@ -4,19 +4,22 @@
   terminal-icons =
     pkgs.stdenv.mkDerivation rec {
       pname = "Terminal-Icons";
-      version = "0.2.2";
-      src = pkgs.fetchFromGitHub {
-        owner = "devblackops";
-        repo = "Terminal-Icons";
-        rev = "4f92245966fc17af106af9f85182551830eb0c1c";
-        sha256 = "1wsdmpbzkhhjgs725malsiyadmshq32ndba2marv5xsb2zgva4li";
+      version = "0.5.0";
 
+      nuget = pkgs.fetchurl {
+        url = "https://www.powershellgallery.com/api/v2/package/${pname}/${version}";
+        executable = false;
+        sha256 = "0zhvwx5b3vvl3vhffjc80b9iifdldjvf4wbp5mypmybkw2w09d64";
       };
+      buildInputs = [ pkgs.unzip ];
+      src = nuget;
+      unpackPhase = ''
+        unzip ${nuget}
+      '';
       installPhase = let p = "${pname}/${version}"; in
         ''
           mkdir -p $out/${p}
-          cp -r Terminal-Icons/* $out/${p}
-          cp -r docs/en-US $out/${p}
+          cp -r * $out/${p}
         '';
       dontBuild = true;
       dontConfigure = true;
