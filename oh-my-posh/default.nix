@@ -11,14 +11,14 @@
 
     themes = pkgs.fetchurl {
       url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v${version}/themes.zip";
-      sha256 = "1bljihr9i3cw8m700g23qzv27dzrpxhrki5b2qdkz5n61xqk4xc2"; 
+      sha256 = "1bljihr9i3cw8m700g23qzv27dzrpxhrki5b2qdkz5n61xqk4xc2";
     };
     src = pkgs.fetchFromGitHub
       {
         owner = "JanDeDobbeleer";
         repo = "oh-my-posh";
         rev = "v${version}";
-      sha256 = "13s360n29gfigzsjjcaxwnhcg5wfylpcviqq2wkm2njc4zmj9xa4";
+        sha256 = "13s360n29gfigzsjjcaxwnhcg5wfylpcviqq2wkm2njc4zmj9xa4";
       } + "/packages/powershell/oh-my-posh/";
 
 
