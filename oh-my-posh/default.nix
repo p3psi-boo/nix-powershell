@@ -2,23 +2,23 @@
 {
   oh-my-posh = pkgs.stdenvNoCC.mkDerivation rec {
     pname = "oh-my-posh";
-    version = "3.129.0";
+    version = "3.144.0";
     exec = pkgs.fetchurl {
       url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v${version}/posh-linux-amd64";
-      sha256 = "1mqrgcx2pmnxj4xw282ldc0z1ia1jq9j9133cb5dwz29pfdy8sxp";
+      sha256 = "00lhqkhf3b4mjv2ypbm0hpsh30z6sa7204v7ajjavk1j4r7gynb6";
       executable = true;
     };
 
     themes = pkgs.fetchurl {
       url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v${version}/themes.zip";
-      sha256 = "1gfkns4byb4y30fjkr62yddjx7mmlscqvblqzk4gddb5f87qwmwl";
+      sha256 = "1bljihr9i3cw8m700g23qzv27dzrpxhrki5b2qdkz5n61xqk4xc2"; 
     };
     src = pkgs.fetchFromGitHub
       {
         owner = "JanDeDobbeleer";
         repo = "oh-my-posh";
         rev = "v${version}";
-        sha256 = "0djvm3h5hpf2xa0l7x0sf6jk2kyzai5l3kfhwzbpcdr0amigkpr1";
+      sha256 = "13s360n29gfigzsjjcaxwnhcg5wfylpcviqq2wkm2njc4zmj9xa4";
       } + "/packages/powershell/oh-my-posh/";
 
 
