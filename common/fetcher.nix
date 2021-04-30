@@ -1,6 +1,6 @@
 let fetchFromPSG = { pkgs, name, ver, sha }:
 
-  pkgs.stdenv.mkDerivation rec {
+  pkgs.stdenvNoCC.mkDerivation rec {
     pname = name;
     version = ver;
 
