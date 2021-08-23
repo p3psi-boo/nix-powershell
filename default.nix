@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs ? import <nixpkgs> {} }:
 
 let
   oh-my-posh = import ./oh-my-posh { inherit pkgs; };
