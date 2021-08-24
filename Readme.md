@@ -1,3 +1,5 @@
+Forked from https://gitlab.com/ShrykeWindgrace/powershell-modules.git
+
 # How to instantiate this stuff
 
 ```console
@@ -23,3 +25,7 @@ in
   xdg.configFile."config_file.ps1".text = cc;
 }
 ```
+
+# TODO
+
+- [] Flake Support 
